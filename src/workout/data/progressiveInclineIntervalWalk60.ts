@@ -36,9 +36,9 @@ export const progressiveInclineIntervalWalk60 = new Workout(
     new WorkoutSet("30 Descend flat", 60, 5.3, 0),
     new WorkoutSet("31 Descend flat", 120, 5.5, 0),
     new WorkoutSet("32 Brisk flat", 60, 5.6, 0),
-    new WorkoutSet("33 Easy 0%", 90, 4.8, 0),
+    new WorkoutSet("33 Easy 0%", 90, 5.0, 0),
     new WorkoutSet("34 Easy 0%", 120, 4.8, 0),
-    new WorkoutSet("35 Easy 0%", 30, 4.8, 0),
-    new WorkoutSet("36 Cool down", 120, 4.8, 0),
+    new WorkoutSet("35 Easy 0%", 30, 4.4, 0),
+    new WorkoutSet("36 Cool down", 120, 4.0, 0),
   ],
 );

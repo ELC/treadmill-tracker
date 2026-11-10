@@ -1,10 +1,13 @@
-.workout-editor-set-indicators {
+.workout-editor-set-indicators:not(.workout-set-indicators--fixed-layout) {
   display: grid;
   grid-template-rows: auto;
-  grid-template-columns: repeat(var(--workout-set-indicator-count), auto);
-  justify-content: center;
+  grid-template-columns: auto minmax(0, max-content) auto;
+  align-items: center;
   gap: var(--space-workout-set-indicators-gap);
+  justify-content: center;
+}
 
+.workout-editor-set-indicators {
   &__dot {
     padding: var(--space-0);
     cursor: pointer;
