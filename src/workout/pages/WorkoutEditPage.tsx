@@ -129,7 +129,7 @@ export function WorkoutEditPage({ mode }: WorkoutEditPageProps): ReactElement {
   };
 
   const handleAddSet = (): void => {
-    const insertIndex = activeSetIndex;
+    const insertIndex = activeSetIndex + 1;
     setDraft((current) => {
       const newSet = newWorkoutSetDraft(insertIndex);
       const sets = [
