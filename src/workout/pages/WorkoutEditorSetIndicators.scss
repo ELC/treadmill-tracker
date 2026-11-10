@@ -1,6 +1,9 @@
 .workout-editor-set-indicators {
   display: grid;
   grid-template-rows: auto;
+  grid-template-columns: repeat(var(--workout-set-indicator-count), auto);
+  justify-content: center;
+  gap: var(--space-workout-set-indicators-gap);
 
   &__dot {
     padding: var(--space-0);

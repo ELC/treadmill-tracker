@@ -79,9 +79,12 @@
   --size-workout-set-indicator-dot: 0.5rem;
   --size-workout-set-indicators-row: var(--size-workout-set-indicator-dot);
   --space-workout-set-indicators-gap: 0.5rem;
+  --space-workout-set-indicators-legend-gap: 0.625rem;
+  --offset-workout-set-indicators-legend-y: 0.06em;
   --border-width-set-indicator-dot: 2px;
   --color-workout-set-indicator-completed: var(--color-accent);
   --color-workout-set-indicator-upcoming-border: var(--color-text-muted);
+  --opacity-workout-set-indicators-legend-hidden: 0;
   --space-panel-compact: 0.75rem;
   --space-shell-inline: 1rem;
   --space-shell-block: 0.75rem;

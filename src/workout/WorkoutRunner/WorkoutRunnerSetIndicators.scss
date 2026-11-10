@@ -1,51 +1,196 @@
 .workout-set-indicators {
+
   display: grid;
+
   grid-template-rows: auto;
-  grid-template-columns: repeat(var(--workout-set-indicator-count), auto);
-  justify-content: center;
+
+  grid-template-columns: auto minmax(0, max-content) auto;
+
   align-items: center;
+
   gap: var(--space-workout-set-indicators-gap);
+
+  justify-content: center;
+
   width: var(--size-full-percent);
+
   min-block-size: var(--size-workout-set-indicators-row);
 
+
+
   &--hidden {
+
     visibility: hidden;
+
     grid-template-columns: minmax(0, 1fr);
+
     pointer-events: none;
+
   }
+
+
+
+  &--fixed-layout {
+
+    display: flex;
+
+    justify-content: center;
+
+  }
+
+
+
+  &__cluster {
+
+    display: inline-flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    gap: var(--space-workout-set-indicators-legend-gap);
+
+    max-inline-size: var(--size-full-percent);
+
+  }
+
+
+
+  &__dots {
+
+    display: grid;
+
+    grid-template-rows: auto;
+
+    grid-template-columns: repeat(var(--workout-set-indicator-count), auto);
+
+    align-items: center;
+
+    gap: var(--space-workout-set-indicators-gap);
+
+    justify-content: center;
+
+  }
+
+
+
+  &--fixed-layout &__dots {
+
+    display: flex;
+
+    flex-direction: row;
+
+  }
+
+  &--fixed-layout &__legend--before {
+    text-align: end;
+  }
+
+  &--fixed-layout &__legend--after {
+    text-align: start;
+  }
+
+  &__legend {
+
+    flex-shrink: 0;
+
+    font-size: var(--font-size-label);
+
+    font-weight: 600;
+
+    font-variant-numeric: tabular-nums;
+
+    line-height: 1;
+
+    color: var(--color-text-muted);
+    text-align: center;
+    translate: 0 var(--offset-workout-set-indicators-legend-y);
+
+    &[aria-hidden="true"] {
+
+      overflow: hidden;
+
+      inline-size: 0;
+
+      margin: 0;
+
+      opacity: var(--opacity-workout-set-indicators-legend-hidden);
+
+    }
+
+  }
+
+
 
   &__dot {
+
     display: grid;
+
     grid-template-columns: minmax(0, 1fr);
+
     place-items: center;
+
     box-sizing: border-box;
+
     inline-size: var(--size-workout-set-indicator-dot);
+
     block-size: var(--size-workout-set-indicator-dot);
+
     min-inline-size: var(--size-workout-set-indicator-dot);
+
     min-block-size: var(--size-workout-set-indicator-dot);
+
     border-radius: var(--radius-full);
+
     border-style: solid;
+
     border-width: var(--border-width-set-indicator-dot);
 
+    flex-shrink: 0;
+
+
+
     &--completed {
+
       border-color: var(--color-workout-set-indicator-completed);
+
       background: var(--color-workout-set-indicator-completed);
+
     }
+
+
 
     &--current {
+
       border-color: var(--color-accent);
+
       background: conic-gradient(
+
         from -90deg,
+
         var(--color-accent) 0deg,
+
         var(--color-accent)
+
           calc(var(--workout-set-indicator-ratio) * 360deg),
+
         transparent calc(var(--workout-set-indicator-ratio) * 360deg)
+
       );
+
     }
 
+
+
     &--upcoming {
+
       border-color: var(--color-workout-set-indicator-upcoming-border);
+
       background: transparent;
+
     }
+
   }
+
 }
+
