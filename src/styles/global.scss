@@ -14,9 +14,24 @@
   box-sizing: border-box;
 }
 
+html {
+  block-size: var(--size-full-percent);
+  overflow: clip;
+}
+
 body {
   display: grid;
   grid-template-rows: 1fr;
-  min-block-size: var(--size-viewport-min-block);
+  block-size: var(--size-viewport-block);
+  max-block-size: var(--size-viewport-block);
   margin: var(--space-0);
+  overflow: clip;
+  overscroll-behavior: none;
+}
+
+#root {
+  display: grid;
+  grid-template-rows: 1fr;
+  min-block-size: var(--space-0);
+  overflow: clip;
 }

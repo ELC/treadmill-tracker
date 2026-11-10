@@ -93,9 +93,14 @@
   --space-panel-compact: 0.75rem;
   --space-shell-inline: 1rem;
   --space-shell-block: 0.75rem;
+  --space-safe-area-block-start: env(safe-area-inset-top, 0px);
+  --space-safe-area-block-end: env(safe-area-inset-bottom, 0px);
+  --space-safe-area-inline-start: env(safe-area-inset-left, 0px);
+  --space-safe-area-inline-end: env(safe-area-inset-right, 0px);
 
   --size-content-max: 28rem;
-  --size-viewport-min-block: 100dvb;
+  --size-viewport-block: 100dvb;
+  --size-viewport-min-block: var(--size-viewport-block);
   --size-full-percent: 100%;
   --size-touch-target: 3.25rem;
 
