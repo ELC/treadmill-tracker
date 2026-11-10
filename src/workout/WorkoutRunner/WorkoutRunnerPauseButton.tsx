@@ -18,7 +18,6 @@ export function WorkoutRunnerPauseButton({
   const isPaused = snapshot.status === WorkoutSessionStatus.Paused;
   const ariaLabel = isPaused ? "Resume" : "Pause";
   const handleClick = isPaused ? actions.resume : actions.pause;
-  const label = isPaused ? "▶" : "⏸";
 
   return (
     <button
@@ -28,8 +27,6 @@ export function WorkoutRunnerPauseButton({
       aria-label={ariaLabel}
       aria-pressed={isPaused}
       onClick={handleClick}
-    >
-      {label}
-    </button>
+    />
   );
 }

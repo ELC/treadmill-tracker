@@ -76,11 +76,13 @@ test.describe("Workout runner", () => {
 
     await workoutRunner.pauseButton.click();
     await expect(workoutRunner.status).toHaveText("PAUSED");
-    await expect(workoutRunner.pauseButton).toHaveText("▶");
+    await expect(workoutRunner.pauseButton).toHaveAttribute("aria-label", "Resume");
+    await expect(workoutRunner.pauseButton).toHaveAttribute("aria-pressed", "true");
 
     await workoutRunner.pauseButton.click();
     await expect(workoutRunner.status).toBeHidden();
-    await expect(workoutRunner.pauseButton).toHaveText("⏸");
+    await expect(workoutRunner.pauseButton).toHaveAttribute("aria-label", "Pause");
+    await expect(workoutRunner.pauseButton).toHaveAttribute("aria-pressed", "false");
   });
 
   test("shows completion summary after the final set", async ({
@@ -238,7 +240,7 @@ test.describe("Workout runner", () => {
       tap();
     });
 
-    await expect(workoutRunner.pauseButton).toHaveText("⏸");
+    await expect(workoutRunner.pauseButton).toHaveAttribute("aria-label", "Pause");
   });
 
   test("moves to the next and previous set", async ({ workoutRunner }) => {
