@@ -1,7 +1,7 @@
 min_version = "2024.12.0"
 
 [tools]
-node = "24.13.0"
+node = "26.13.0"
 
 [tasks.install]
 description = "Install npm dependencies"
@@ -18,6 +18,15 @@ run = "npm run lint"
 [tasks.build]
 description = "Production build"
 run = "npm run build"
+
+[tasks."build:pages"]
+description = "Production build for GitHub Pages (CI)"
+env = { VITE_BASE = "/treadmill-tracker/" }
+run = [
+  "npm ci",
+  "npm run build",
+  "cp dist/index.html dist/404.html",
+]
 
 [tasks."test:e2e"]
 description = "Run Playwright end-to-end tests (uses system Chrome; set PW_CHANNEL=chrome)"
