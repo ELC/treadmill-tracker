@@ -9,7 +9,7 @@ choices, lint rules, or conventions, update this file in the same change.**
   `/start`, `/plan`, `/run?workout=`). No backend. **PWA** via `vite-plugin-pwa`
   (web manifest, service worker, installable on mobile). Do not intercept
   `beforeinstallprompt` with `preventDefault`—that suppresses the browser’s
-  native install UI. Regenerate PNG icons from `public/favicon.svg` with
+  native install UI. Regenerate derived icons from `public/icon-source.png` with
   `npm run pwa:icons` after icon art changes.
 - Node via **mise** (`mise.toml`). Prefer `mise run <task>` over ad hoc npm scripts.
 

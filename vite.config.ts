@@ -16,7 +16,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: "autoUpdate",
-      includeAssets: ["favicon.svg", "apple-touch-icon.png"],
+      includeAssets: ["favicon.png", "apple-touch-icon.png"],
       devOptions: {
         enabled: process.env.VITE_PWA_DEV !== "false",
       },
@@ -38,9 +38,9 @@ export default defineConfig({
         orientation: "portrait",
         icons: [
           {
-            src: "favicon.svg",
-            sizes: "any",
-            type: "image/svg+xml",
+            src: "favicon.png",
+            sizes: "32x32",
+            type: "image/png",
             purpose: "any",
           },
           {
