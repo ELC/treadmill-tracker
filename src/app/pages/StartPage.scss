@@ -1,0 +1,38 @@
+.workout-start {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: var(--space-3);
+  width: min(var(--size-full-percent), var(--size-content-max));
+  min-block-size: 0;
+
+  &__header {
+    display: grid;
+    grid-template-rows: auto;
+    justify-items: stretch;
+  }
+
+  &__back {
+    display: grid;
+    grid-template-rows: auto;
+    place-items: center;
+    justify-self: start;
+    min-inline-size: var(--size-touch-target);
+    min-block-size: var(--size-touch-target);
+    font-size: var(--font-size-start-back);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-display);
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-rows: max-content;
+    grid-auto-rows: max-content;
+    align-content: start;
+    gap: var(--space-3);
+    margin: var(--space-0);
+    padding: var(--space-0);
+    list-style: none;
+  }
+}

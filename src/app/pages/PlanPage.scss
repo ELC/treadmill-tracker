@@ -1,0 +1,91 @@
+.workout-plan {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: var(--space-3);
+  width: min(var(--size-full-percent), var(--size-content-max));
+  min-block-size: 0;
+
+  &__header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    row-gap: var(--space-2);
+    justify-items: stretch;
+  }
+
+  &__back {
+    display: grid;
+    grid-column: 1;
+    grid-row: 1;
+    grid-template-rows: auto;
+    place-items: center;
+    justify-self: start;
+    align-self: center;
+    z-index: 1;
+    min-inline-size: var(--size-touch-target);
+    min-block-size: var(--size-touch-target);
+    font-size: var(--font-size-start-back);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-display);
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  &__title {
+    display: grid;
+    grid-column: 1;
+    grid-row: 1;
+    grid-template-rows: auto;
+    place-items: center;
+    justify-self: center;
+    inline-size: var(--size-full-percent);
+    margin: var(--space-0);
+    font-size: var(--font-size-workout-plan-title);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    color: var(--color-text);
+    text-align: center;
+  }
+
+  &__add {
+    display: grid;
+    grid-column: 1;
+    grid-row: 2;
+    grid-template-rows: auto;
+    align-content: center;
+    justify-items: center;
+    min-block-size: var(--size-touch-target);
+    padding: var(--space-2) var(--space-3);
+    border: var(--border-width-divider) solid var(--color-border);
+    border-radius: var(--radius-control);
+    background: var(--color-accent);
+    font-size: var(--font-size-label);
+    font-weight: 600;
+    color: var(--color-accent-text);
+    text-align: center;
+    text-decoration: none;
+
+    &:active {
+      background: var(--color-control-primary-pressed-bg);
+    }
+  }
+
+  &__empty {
+    margin: var(--space-0);
+    font-size: var(--font-size-label);
+    line-height: var(--line-height-base);
+    color: var(--color-text-muted);
+    text-align: center;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-rows: max-content;
+    grid-auto-rows: max-content;
+    align-content: start;
+    gap: var(--space-3);
+    margin: var(--space-0);
+    padding: var(--space-0);
+    list-style: none;
+  }
+}

@@ -1,0 +1,91 @@
+.workout-complete {
+  display: grid;
+  grid-template-rows: auto auto;
+  justify-items: center;
+  gap: var(--space-workout-complete-lead-stats-gap);
+  width: var(--size-full-percent);
+  padding: var(--space-panel-compact);
+  text-align: center;
+
+  &__lead {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: var(--space-workout-complete-heading-message-gap);
+    width: var(--size-full-percent);
+  }
+
+  &__heading {
+    margin: var(--space-0);
+    font-size: var(--font-size-workout-complete-heading);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-display);
+    color: var(--color-text);
+  }
+
+  &__distance {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: var(--space-2);
+    width: var(--size-full-percent);
+  }
+
+  &__distance-name {
+    margin: var(--space-0);
+    font-size: var(--font-size-label);
+    font-weight: 600;
+    letter-spacing: var(--letter-spacing-label);
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  &__distance-value {
+    margin: var(--space-0);
+    font-family: var(--font-family-set-panel-metric);
+    font-size: var(--font-size-set-metric);
+    font-weight: var(--font-weight-metric-display);
+    font-kerning: none;
+    font-variant-ligatures: none;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+    letter-spacing: var(--set-panel-metric-letter-spacing);
+    line-height: var(--line-height-display);
+    color: var(--color-text);
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    gap: var(--space-3);
+    width: var(--size-full-percent);
+    margin: var(--space-0);
+  }
+
+  &__stat {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: var(--space-2);
+  }
+
+  &__stat-name {
+    margin: var(--space-0);
+    font-size: var(--font-size-label);
+    font-weight: 600;
+    letter-spacing: var(--letter-spacing-label);
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  &__stat-value {
+    margin: var(--space-0);
+    font-family: var(--font-family-set-panel-metric);
+    font-size: var(--font-size-set-metric);
+    font-weight: var(--font-weight-metric-display);
+    font-kerning: none;
+    font-variant-ligatures: none;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+    letter-spacing: var(--set-panel-metric-letter-spacing);
+    line-height: var(--line-height-display);
+    color: var(--color-text);
+  }
+}

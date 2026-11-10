@@ -1,0 +1,202 @@
+.workout-runner {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: 1fr;
+  gap: var(--space-runner-footer-gap);
+  align-self: stretch;
+  width: min(var(--size-full-percent), var(--size-content-max));
+  min-block-size: 0;
+
+  &__body {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    min-block-size: 0;
+    width: var(--size-full-percent);
+    touch-action: manipulation;
+  }
+
+  &__focus {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    justify-items: center;
+    gap: var(--space-0);
+    width: var(--size-full-percent);
+    min-block-size: 0;
+
+    &--complete {
+      grid-template-rows: 1fr;
+      align-content: center;
+    }
+  }
+
+  &__focus-current {
+    display: grid;
+    grid-template-rows: 1fr;
+    align-content: center;
+    justify-items: center;
+    width: var(--size-full-percent);
+    min-block-size: 0;
+  }
+
+  &__header {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: var(--space-2);
+    justify-items: stretch;
+    align-content: start;
+    width: var(--size-full-percent);
+    margin-block-start: var(--space-runner-session-timer-margin-block-start);
+  }
+
+  &__session-active {
+    display: grid;
+    grid-template-columns: min(var(--size-full-percent), var(--size-content-max));
+    justify-content: center;
+    justify-items: center;
+    margin: var(--space-0);
+    font-size: var(--font-size-label);
+    line-height: var(--line-height-display);
+    color: var(--color-text-muted);
+  }
+
+  &__session-active-value {
+    margin: var(--space-0);
+    font-family: var(--font-family-set-panel-metric);
+    font-size: var(--font-size-session-elapsed);
+    font-weight: var(--font-weight-metric-display);
+    font-variant-numeric: tabular-nums;
+    line-height: var(--line-height-display);
+    color: var(--color-text-muted);
+  }
+
+  &__title {
+    margin: var(--space-0);
+    font-size: var(--font-size-workout-runner-title);
+    font-weight: 600;
+    line-height: var(--line-height-tight);
+    color: var(--color-text-muted);
+    text-align: center;
+  }
+
+  &__paused-overlay {
+    position: absolute;
+    inset: var(--space-0);
+    z-index: var(--z-index-pause-overlay);
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    place-items: center;
+    background: var(--color-pause-overlay);
+    pointer-events: none;
+
+    &[aria-hidden="true"] {
+      visibility: hidden;
+    }
+  }
+
+  &__paused-label {
+    display: grid;
+    grid-template-rows: repeat(6, auto);
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: var(--space-paused-letter-gap);
+    margin: var(--space-0);
+    font-size: var(--font-size-paused-banner);
+    font-weight: 600;
+    line-height: var(--line-height-paused-letter);
+    color: var(--color-accent);
+  }
+
+  &__paused-letter {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    margin: var(--space-0);
+  }
+
+  &__footer {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    width: min(var(--size-full-percent), var(--size-content-max));
+    position: relative;
+    z-index: var(--z-index-workout-controls);
+  }
+
+  &__controls {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-2);
+  }
+
+  &__control {
+    display: grid;
+    grid-template-rows: auto;
+    align-content: center;
+    justify-items: center;
+    min-block-size: var(--size-touch-target);
+    padding: var(--space-2);
+    border: var(--border-width-control-ghost) solid transparent;
+    border-radius: var(--radius-control);
+    background: transparent;
+    font-size: var(--font-size-control);
+    font-weight: 600;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition:
+      background var(--duration-control-press) ease,
+      box-shadow var(--duration-control-press) ease,
+      color var(--duration-control-press) ease;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+
+    &:active:not(:disabled) {
+      background: var(--color-control-pressed-bg);
+      box-shadow: inset 0 0 0 var(--border-width-divider) var(--color-control-pressed-border);
+    }
+
+    &--nav {
+      font-size: var(--font-size-body-lg);
+      color: var(--color-text);
+
+      &:disabled {
+        color: var(--color-control-nav-text-disabled);
+        cursor: not-allowed;
+      }
+    }
+
+    &--nav-previous {
+      scale: -1 1;
+    }
+
+    &--primary {
+      border-width: var(--border-width-control-ghost);
+      background: var(--color-accent);
+      color: var(--color-accent-text);
+
+      &:active:not(:disabled) {
+        background: var(--color-control-primary-pressed-bg);
+        box-shadow: inset 0 0 0 var(--border-width-divider) var(--color-control-pressed-border);
+      }
+    }
+
+    &--restart {
+      font-size: var(--font-size-workout-complete-restart-icon);
+      line-height: var(--line-height-display);
+    }
+
+    &--pause {
+      font-size: var(--font-size-body-lg);
+    }
+  }
+
+  &__control-spacer {
+    display: grid;
+    min-block-size: var(--size-touch-target);
+  }
+}

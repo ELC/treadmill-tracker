@@ -1,0 +1,374 @@
+// Design tokens — the only place raw values are defined for the app.
+// Dark theme is default; light overrides via :root[data-theme="light"].
+:root {
+  --color-text: #fafafa;
+  --color-text-muted: #a1a1aa;
+  --color-bg: #0f0f12;
+  --color-theme-dark-scheme-bg: #0f0f12;
+  --color-theme-light-scheme-bg: #ffffff;
+  --color-surface: #1a1a1f;
+  --color-surface-current: transparent;
+  --color-surface-upcoming: transparent;
+  --color-border: #3f3f46;
+  --color-border-subtle: #27272a;
+  --color-accent: #3b82f6;
+  --color-accent-text: #fafafa;
+  --color-control-nav-text-disabled: color-mix(
+    in srgb,
+    var(--color-text-muted) 40%,
+    var(--color-bg)
+  );
+  --color-bg-gradient-start: #0a0a0e;
+  --color-bg-gradient-mid: #151528;
+  --color-bg-gradient-end: #0a1628;
+  --gradient-bg-angle: 165deg;
+  --gradient-bg: linear-gradient(
+    var(--gradient-bg-angle),
+    var(--color-bg-gradient-start) 0%,
+    var(--color-bg-gradient-mid) 42%,
+    var(--color-bg-gradient-end) 100%
+  );
+
+  --font-family-base: system-ui, sans-serif;
+  --font-family-metric-mono: ui-monospace, monospace;
+  --font-family-jetbrains-mono: "JetBrains Mono", var(--font-family-metric-mono);
+  --font-family-set-panel-metric: var(--font-family-jetbrains-mono);
+  --font-weight-metric-display: 600;
+  --size-set-panel-metric-value-width: 4ch;
+  --set-panel-metric-letter-spacing: var(--space-0);
+  --line-height-base: 1.5;
+  --line-height-tight: 1.15;
+  --line-height-display: 1;
+  --letter-spacing-label: 0.06em;
+
+  --space-0: 0;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-focus-follow: 0.5rem;
+  --space-runner-footer-gap: 1.25rem;
+  --space-runner-header-margin-block-start: calc(
+    var(--size-touch-target) + var(--space-shell-block) - var(--space-2)
+  );
+  --space-runner-session-timer-margin-block-start: var(--space-1);
+  --space-upcoming-offset: 1.5rem;
+  --space-upcoming-row-gap: 1rem;
+  --space-upcoming-bottom: 1rem;
+  --space-upcoming-metrics-gap: 0.75rem;
+  --space-upcoming-metric-label-gap: 0.625rem;
+  --font-size-upcoming-heading: var(--font-size-body-lg);
+  --font-size-upcoming-name: 1.3125rem;
+  --size-upcoming-head-min-block: calc(
+    var(--font-size-upcoming-name) * var(--line-height-tight) +
+    var(--space-4)
+  );
+  --size-upcoming-metrics-min-block: calc(
+    var(--font-size-label) * var(--line-height-tight) +
+    var(--space-upcoming-metric-label-gap) +
+    var(--font-size-metric-sm) * var(--line-height-tight)
+  );
+  --size-upcoming-panel-min-block: calc(
+    var(--space-upcoming-offset) +
+    var(--size-upcoming-head-min-block) +
+    var(--space-upcoming-row-gap) +
+    var(--size-upcoming-metrics-min-block) +
+    var(--space-upcoming-bottom)
+  );
+  --size-workout-set-indicator-dot: 0.5rem;
+  --size-workout-set-indicators-row: var(--size-workout-set-indicator-dot);
+  --space-workout-set-indicators-gap: 0.5rem;
+  --border-width-set-indicator-dot: 2px;
+  --color-workout-set-indicator-completed: var(--color-accent);
+  --color-workout-set-indicator-upcoming-border: var(--color-text-muted);
+  --space-panel-compact: 0.75rem;
+  --space-shell-inline: 1rem;
+  --space-shell-block: 0.75rem;
+
+  --size-content-max: 28rem;
+  --size-viewport-min-block: 100dvb;
+  --size-full-percent: 100%;
+  --size-touch-target: 3.25rem;
+
+  --radius-panel: 0;
+  --radius-control: 0.5rem;
+  --radius-full: 50%;
+  --font-weight-bold: 700;
+  --border-width-control: 2px;
+  --border-width-control-ghost: 0;
+  --border-width-divider: 1px;
+  --duration-control-press: 0.12s;
+  --color-control-pressed-bg: color-mix(
+    in srgb,
+    var(--color-surface) 55%,
+    transparent
+  );
+  --color-control-pressed-border: var(--color-border-subtle);
+  --color-control-primary-pressed-bg: color-mix(
+    in srgb,
+    var(--color-accent) 88%,
+    var(--color-bg)
+  );
+  --opacity-disabled: 0.45;
+  --opacity-pause-overlay: 0.82;
+  --z-index-pause-overlay: 1;
+  --z-index-workout-controls: 2;
+  --z-index-app-header: 3;
+  --color-pause-overlay: color-mix(
+    in srgb,
+    var(--color-bg) calc(var(--opacity-pause-overlay) * 100%),
+    transparent
+  );
+
+  --font-size-label: 0.8125rem;
+  --font-size-body-lg: 1.125rem;
+  --font-size-control: 1rem;
+  --font-size-title-min: 1.125rem;
+  --font-size-title-max: 1.75rem;
+  --font-title-fluid-vw: 3.5;
+  --font-title-fluid-base: 0.5rem;
+  --font-size-title: clamp(
+    var(--font-size-title-min),
+    calc(var(--font-title-fluid-vw) * 1vw + var(--font-title-fluid-base)),
+    var(--font-size-title-max)
+  );
+
+  --font-size-panel-title-min: 1.25rem;
+  --font-size-panel-title-max: 1.875rem;
+  --font-panel-title-fluid-vw: 4;
+  --font-size-panel-title: clamp(
+    var(--font-size-panel-title-min),
+    calc(var(--font-panel-title-fluid-vw) * 1vw + var(--font-title-fluid-base)),
+    var(--font-size-panel-title-max)
+  );
+
+  --font-size-workout-complete-heading-min: 2.25rem;
+  --font-size-workout-complete-heading-max: 3.25rem;
+  --font-workout-complete-heading-fluid-vw: 7.5;
+  --font-size-workout-complete-heading: clamp(
+    var(--font-size-workout-complete-heading-min),
+    calc(
+      var(--font-workout-complete-heading-fluid-vw) * 1vw +
+      var(--font-title-fluid-base)
+    ),
+    var(--font-size-workout-complete-heading-max)
+  );
+
+  --font-size-workout-complete-message-min: 1.125rem;
+  --font-size-workout-complete-message-max: 1.5rem;
+  --font-workout-complete-message-fluid-vw: 3.5;
+  --font-size-workout-complete-message: clamp(
+    var(--font-size-workout-complete-message-min),
+    calc(
+      var(--font-workout-complete-message-fluid-vw) * 1vw +
+      var(--font-title-fluid-base)
+    ),
+    var(--font-size-workout-complete-message-max)
+  );
+
+  --font-size-workout-complete-restart-icon: 1.75rem;
+
+  --space-workout-complete-heading-message-gap: var(--space-1);
+  --space-workout-complete-lead-stats-gap: var(--space-2);
+
+  --font-size-home-title-min: 2rem;
+  --font-size-home-title-max: 3.25rem;
+  --font-home-title-fluid-vw: 6;
+  --font-size-home-title: clamp(
+    var(--font-size-home-title-min),
+    calc(var(--font-home-title-fluid-vw) * 1vw + var(--font-title-fluid-base)),
+    var(--font-size-home-title-max)
+  );
+  --font-size-home-tile-icon: 2.5rem;
+  --font-size-home-tile-label: 1.375rem;
+  --size-home-menu-tile-min: 8.5rem;
+  --space-home-menu-block-start: calc(
+    var(--size-touch-target) + var(--space-shell-block)
+  );
+  --radius-home-tile: 0.75rem;
+  --opacity-home-tile-hint: 0.88;
+
+  --font-size-start-back: 1.5rem;
+  --size-start-workout-card-min: 15rem;
+  --space-start-card-padding-block: var(--space-4);
+  --space-start-card-title-gap: var(--space-3);
+  --space-start-card-stat-row-gap: var(--space-3);
+  --line-height-start-card-title: 1.12;
+  --font-size-start-card-title-min: 2rem;
+  --font-size-start-card-title-max: 2.375rem;
+  --font-start-card-title-fluid-vw: 4.5;
+  --font-size-start-card-title: clamp(
+    var(--font-size-start-card-title-min),
+    calc(
+      var(--font-start-card-title-fluid-vw) * 1vw + var(--font-title-fluid-base)
+    ),
+    var(--font-size-start-card-title-max)
+  );
+  --font-size-start-card-stat-label-min: 1.25rem;
+  --font-size-start-card-stat-label-max: 1.5rem;
+  --font-start-card-stat-label-fluid-vw: 2.25;
+  --font-size-start-card-stat-label: clamp(
+    var(--font-size-start-card-stat-label-min),
+    calc(
+      var(--font-start-card-stat-label-fluid-vw) * 1vw +
+        var(--font-title-fluid-base)
+    ),
+    var(--font-size-start-card-stat-label-max)
+  );
+  --font-size-start-card-stat-min: 1.5rem;
+  --font-size-start-card-stat-max: 1.875rem;
+  --font-start-card-stat-fluid-vw: 3.5;
+  --space-start-card-stat-gap: var(--space-2);
+  --space-start-card-stat-inner-gap: var(--space-2);
+  --line-height-start-card-stat: 1.12;
+  --font-size-start-card-stat: clamp(
+    var(--font-size-start-card-stat-min),
+    calc(
+      var(--font-start-card-stat-fluid-vw) * 1vw + var(--font-title-fluid-base)
+    ),
+    var(--font-size-start-card-stat-max)
+  );
+
+  --size-workout-editor-input: 2.5rem;
+  --size-workout-editor-metric-input: 4rem;
+  --size-workout-editor-metric-value-max: 7ch;
+  --font-size-workout-editor-workout-name: var(--font-size-start-card-title);
+  --font-size-workout-editor-set-name: var(--font-size-panel-title);
+  --font-size-workout-editor-set-label: var(--font-size-workout-editor-field-hint);
+  --font-size-workout-editor-workout-label: var(--font-size-workout-editor-set-label);
+  --size-workout-editor-workout-name-input: 3.25rem;
+  --size-workout-editor-set-name-input: 2.75rem;
+  --size-workout-editor-duration-input: 5.5rem;
+  --font-size-workout-editor-field-hint: var(--font-size-current-metric-label);
+  --space-workout-editor-set-gap: var(--space-2);
+  --space-workout-editor-hint-gap: var(--space-0);
+  --space-workout-editor-set-separator-before: var(--space-4);
+  --space-workout-editor-set-separator-after: var(--space-4);
+  --space-workout-editor-metric-gap: var(--space-3);
+  --font-size-workout-editor-footer: var(--font-size-body-lg);
+  --font-size-workout-plan-title: var(--font-size-panel-title);
+
+  --font-size-workout-runner-title-min: 0.875rem;
+  --font-size-workout-runner-title-max: 1.0625rem;
+  --font-workout-runner-title-fluid-vw: 1.75;
+  --font-size-workout-runner-title: clamp(
+    var(--font-size-workout-runner-title-min),
+    calc(
+      var(--font-workout-runner-title-fluid-vw) * 1vw +
+      var(--font-title-fluid-base)
+    ),
+    var(--font-size-workout-runner-title-max)
+  );
+
+  --font-size-metric-min: 2.75rem;
+  --font-size-metric-max: 4rem;
+  --font-metric-fluid-vw: 9;
+  --font-size-metric: clamp(
+    var(--font-size-metric-min),
+    calc(var(--font-metric-fluid-vw) * 1vw + var(--font-title-fluid-base)),
+    var(--font-size-metric-max)
+  );
+
+  --font-size-metric-sm-min: 1.5rem;
+  --font-size-metric-sm-max: 2.25rem;
+  --font-metric-sm-fluid-vw: 5.5;
+  --font-size-metric-sm: clamp(
+    var(--font-size-metric-sm-min),
+    calc(var(--font-metric-sm-fluid-vw) * 1vw + var(--font-title-fluid-base)),
+    var(--font-size-metric-sm-max)
+  );
+
+  --font-size-set-metric-min: 2rem;
+  --font-size-set-metric-max: 3.25rem;
+  --font-set-metric-fluid-vw: 7.5;
+  --font-size-set-metric: clamp(
+    var(--font-size-set-metric-min),
+    calc(var(--font-set-metric-fluid-vw) * 1vw + var(--font-title-fluid-base)),
+    var(--font-size-set-metric-max)
+  );
+
+  --font-size-current-name-min: 2.25rem;
+  --font-size-current-name-max: 3.5rem;
+  --font-current-name-fluid-vw: 8.5;
+  --font-size-current-name: clamp(
+    var(--font-size-current-name-min),
+    calc(var(--font-current-name-fluid-vw) * 1vw + var(--font-title-fluid-base)),
+    var(--font-size-current-name-max)
+  );
+
+  --font-size-session-elapsed-min: 1.25rem;
+  --font-size-session-elapsed-max: 1.75rem;
+  --font-session-elapsed-fluid-vw: 4;
+  --font-size-session-elapsed: clamp(
+    var(--font-size-session-elapsed-min),
+    calc(
+      var(--font-session-elapsed-fluid-vw) * 1vw + var(--font-title-fluid-base)
+    ),
+    var(--font-size-session-elapsed-max)
+  );
+
+  --space-paused-letter-gap: 0.1875rem;
+  --line-height-paused-letter: 0.92;
+  --font-size-paused-banner-min: 4.25rem;
+  --font-size-paused-banner-max: 7.5rem;
+  --font-paused-banner-fluid-vw: 18;
+  --font-size-paused-banner: clamp(
+    var(--font-size-paused-banner-min),
+    calc(
+      var(--font-paused-banner-fluid-vw) * 1vw + var(--font-title-fluid-base)
+    ),
+    var(--font-size-paused-banner-max)
+  );
+
+  --font-size-current-time-min: 4.5rem;
+  --font-size-current-time-max: 8rem;
+  --font-current-time-fluid-vw: 20;
+  --font-size-current-time: clamp(
+    var(--font-size-current-time-min),
+    calc(var(--font-current-time-fluid-vw) * 1vw + var(--font-title-fluid-base)),
+    var(--font-size-current-time-max)
+  );
+
+  --font-size-current-metric-min: 2.75rem;
+  --font-size-current-metric-max: 4.5rem;
+  --font-current-metric-fluid-vw: 11;
+  --font-size-current-metric: clamp(
+    var(--font-size-current-metric-min),
+    calc(var(--font-current-metric-fluid-vw) * 1vw + var(--font-title-fluid-base)),
+    var(--font-size-current-metric-max)
+  );
+
+  --font-size-current-metric-label-min: 1.0625rem;
+  --font-size-current-metric-label-max: 1.4375rem;
+  --font-current-metric-label-fluid-vw: 2.75;
+  --font-size-current-metric-label: clamp(
+    var(--font-size-current-metric-label-min),
+    calc(
+      var(--font-current-metric-label-fluid-vw) * 1vw +
+      var(--font-title-fluid-base)
+    ),
+    var(--font-size-current-metric-label-max)
+  );
+
+  --space-current-panel: 0.375rem;
+  --space-current-name-time: 0.375rem;
+  --space-current-metrics: 0.5rem;
+  --space-current-metric-name-margin: var(--space-4);
+}
+
+:root[data-theme="light"] {
+  --color-text: #111111;
+  --color-text-muted: #5a5a5a;
+  --color-bg: #ffffff;
+  --color-surface: #f4f4f5;
+  --color-surface-current: transparent;
+  --color-surface-upcoming: transparent;
+  --color-border: #d4d4d8;
+  --color-border-subtle: #e4e4e7;
+  --color-accent: #1d4ed8;
+  --color-accent-text: #fafafa;
+  --color-bg-gradient-start: #f8fafc;
+  --color-bg-gradient-mid: #e0e7ff;
+  --color-bg-gradient-end: #f1f5f9;
+}

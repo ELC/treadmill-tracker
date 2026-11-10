@@ -1,0 +1,13 @@
+.workout-editor-set-indicators {
+  display: grid;
+  grid-template-rows: auto;
+
+  &__dot {
+    padding: var(--space-0);
+    cursor: pointer;
+
+    &:active {
+      opacity: var(--opacity-home-tile-hint);
+    }
+  }
+}

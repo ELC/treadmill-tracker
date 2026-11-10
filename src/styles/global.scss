@@ -1,0 +1,22 @@
+:root {
+  font-family: var(--font-family-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background: var(--gradient-bg);
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid-template-rows: 1fr;
+  min-block-size: var(--size-viewport-min-block);
+  margin: var(--space-0);
+}

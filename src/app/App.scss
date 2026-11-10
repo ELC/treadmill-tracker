@@ -1,0 +1,26 @@
+.app {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  min-block-size: var(--size-viewport-min-block);
+  position: relative;
+
+  &__header {
+    position: absolute;
+    inset-block-start: var(--space-shell-block);
+    inset-inline-end: var(--space-shell-inline);
+    z-index: var(--z-index-app-header);
+  }
+
+  &__content {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    justify-items: center;
+    align-content: stretch;
+    min-block-size: 0;
+    padding: var(--space-shell-block) var(--space-shell-inline);
+    padding-block-start: var(--space-2);
+  }
+}

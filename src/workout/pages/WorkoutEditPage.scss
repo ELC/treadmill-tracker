@@ -1,0 +1,327 @@
+.workout-editor {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: 1fr;
+  gap: var(--space-runner-footer-gap);
+  align-self: stretch;
+  width: min(var(--size-full-percent), var(--size-content-max));
+  min-block-size: 0;
+
+  &__body {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    min-block-size: 0;
+    width: var(--size-full-percent);
+  }
+
+  &__header {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: var(--space-2);
+    justify-items: stretch;
+    width: var(--size-full-percent);
+  }
+
+  &__back {
+    display: grid;
+    grid-template-rows: auto;
+    place-items: center;
+    justify-self: start;
+    min-inline-size: var(--size-touch-target);
+    min-block-size: var(--size-touch-target);
+    font-size: var(--font-size-body-lg);
+    font-weight: 600;
+    line-height: var(--line-height-display);
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  &__title-field {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: var(--space-1);
+    justify-items: stretch;
+  }
+
+  &__title-input {
+    display: grid;
+    inline-size: 100%;
+    min-inline-size: 0;
+    margin: var(--space-0);
+    padding: var(--space-1) var(--space-2);
+    border: var(--border-width-control-ghost) solid transparent;
+    border-radius: var(--radius-control);
+    background: transparent;
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-workout-editor-workout-name);
+    font-weight: var(--font-weight-bold);
+    min-block-size: var(--size-workout-editor-workout-name-input);
+    padding-block: var(--space-2);
+    line-height: var(--line-height-tight);
+    color: var(--color-text);
+    text-align: center;
+
+    &:focus {
+      border-color: var(--color-border);
+      background: var(--color-surface);
+    }
+  }
+
+  &__message {
+    margin: var(--space-0);
+    font-size: var(--font-size-label);
+    color: var(--color-text-muted);
+    text-align: center;
+  }
+
+  &__field-hint {
+    margin: var(--space-0);
+    font-size: var(--font-size-workout-editor-field-hint);
+    font-weight: 400;
+    line-height: var(--line-height-tight);
+    color: var(--color-text-muted);
+    text-align: center;
+
+    &--workout {
+      font-size: var(--font-size-workout-editor-workout-label);
+      font-weight: 600;
+      line-height: var(--line-height-tight);
+      letter-spacing: var(--letter-spacing-label);
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+
+    &--set {
+      font-size: var(--font-size-workout-editor-set-label);
+      font-weight: 600;
+      color: var(--color-text-muted);
+      text-transform: none;
+    }
+  }
+
+  &__focus {
+    display: grid;
+    grid-template-rows: 1fr;
+    align-content: center;
+    justify-items: center;
+    width: var(--size-full-percent);
+    min-block-size: 0;
+  }
+
+  &__set-panel-wrap {
+    display: grid;
+    grid-template-rows: auto;
+    width: var(--size-full-percent);
+  }
+
+  &__set-panel {
+    width: var(--size-full-percent);
+    --set-panel-metric-value-width: var(--size-full-percent);
+    --set-panel-metric-value-min-inline-size: var(--space-0);
+    --set-panel-metric-value-white-space: normal;
+  }
+
+  &__set-name-label,
+  &__set-duration-label {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: var(--space-workout-editor-hint-gap);
+    justify-items: stretch;
+    width: var(--size-full-percent);
+  }
+
+  &__set-name-label {
+    margin-block-start: var(--space-current-panel);
+  }
+
+  &__set-field {
+    display: block;
+    inline-size: 100%;
+    min-inline-size: 0;
+    margin: var(--space-0);
+    padding: var(--space-1) var(--space-2);
+    border: var(--border-width-control-ghost) solid transparent;
+    border-radius: var(--radius-control);
+    background: transparent;
+    color: var(--color-text);
+    text-align: center;
+    line-height: var(--line-height-tight);
+    font-variant-numeric: tabular-nums;
+    box-sizing: border-box;
+
+    &:focus {
+      border-color: var(--color-border);
+      background: var(--color-surface);
+    }
+
+    &--name {
+      min-block-size: var(--size-workout-editor-set-name-input);
+      padding-block: var(--space-2);
+      font-size: var(--font-size-workout-editor-set-name);
+      font-weight: 600;
+      line-height: var(--line-height-tight);
+    }
+
+    &--duration {
+      min-block-size: var(--size-workout-editor-duration-input);
+      padding-block: var(--space-2);
+      font-family: var(--font-family-set-panel-metric);
+      font-size: var(--font-size-current-time);
+      font-weight: var(--font-weight-metric-display);
+      line-height: var(--line-height-tight);
+    }
+
+    &--metric {
+      inline-size: min(
+        var(--size-full-percent),
+        var(--size-workout-editor-metric-value-max)
+      );
+      max-inline-size: 100%;
+      min-block-size: var(--size-workout-editor-metric-input);
+      margin-inline: auto;
+      padding-block: var(--space-2);
+      font-family: var(--font-family-set-panel-metric);
+      font-size: var(--font-size-current-metric);
+      font-weight: var(--font-weight-metric-display);
+      line-height: var(--line-height-tight);
+    }
+  }
+
+  &__footer {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: var(--space-2);
+    width: min(var(--size-full-percent), var(--size-content-max));
+  }
+
+  &__controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: var(--space-2);
+    align-items: center;
+  }
+
+  &__control {
+    display: grid;
+    grid-template-rows: auto;
+    align-content: center;
+    justify-items: center;
+    min-block-size: var(--size-touch-target);
+    padding: var(--space-2);
+    border: var(--border-width-control-ghost) solid transparent;
+    border-radius: var(--radius-control);
+    background: transparent;
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-control);
+    font-weight: 600;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition:
+      background var(--duration-control-press) ease,
+      box-shadow var(--duration-control-press) ease,
+      color var(--duration-control-press) ease;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+
+    &:active:not(:disabled) {
+      background: var(--color-control-pressed-bg);
+      box-shadow: inset 0 0 0 var(--border-width-divider) var(--color-control-pressed-border);
+    }
+
+    &--nav {
+      justify-self: end;
+      font-size: var(--font-size-body-lg);
+      color: var(--color-text);
+
+      &:disabled {
+        color: var(--color-control-nav-text-disabled);
+        cursor: not-allowed;
+      }
+    }
+
+    &--nav-previous {
+      justify-self: start;
+      scale: -1 1;
+    }
+
+    &--primary {
+      justify-self: center;
+      font-size: var(--font-size-workout-editor-footer);
+      color: var(--color-accent);
+    }
+  }
+
+  &__actions {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: var(--space-2);
+  }
+
+  &__delete-set {
+    display: grid;
+    grid-template-rows: auto;
+    align-content: center;
+    justify-items: center;
+    min-block-size: var(--size-touch-target);
+    padding: var(--space-2);
+    border: var(--border-width-control-ghost) solid transparent;
+    border-radius: var(--radius-control);
+    background: transparent;
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-workout-editor-footer);
+    font-weight: 600;
+    color: var(--color-text-muted);
+    cursor: pointer;
+
+    &:active:not(:disabled) {
+      background: var(--color-control-pressed-bg);
+    }
+
+    &:disabled {
+      opacity: var(--opacity-disabled);
+      cursor: not-allowed;
+    }
+  }
+
+  &__save {
+    display: grid;
+    grid-template-rows: auto;
+    align-content: center;
+    justify-items: center;
+    min-block-size: var(--size-touch-target);
+    padding: var(--space-2);
+    border: var(--border-width-control-ghost) solid transparent;
+    border-radius: var(--radius-control);
+    background: var(--color-accent);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-workout-editor-footer);
+    font-weight: 600;
+    color: var(--color-accent-text);
+    cursor: pointer;
+  }
+
+  &__delete {
+    display: grid;
+    grid-template-rows: auto;
+    align-content: center;
+    justify-items: center;
+    min-block-size: var(--size-touch-target);
+    padding: var(--space-2);
+    border: var(--border-width-control-ghost) solid transparent;
+    border-radius: var(--radius-control);
+    background: transparent;
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-workout-editor-footer);
+    font-weight: 600;
+    color: var(--color-text-muted);
+    cursor: pointer;
+
+    &:active {
+      background: var(--color-control-pressed-bg);
+    }
+  }
+}

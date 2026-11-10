@@ -1,0 +1,22 @@
+.workout-run-shell {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: var(--space-2);
+  width: min(var(--size-full-percent), var(--size-content-max));
+  min-block-size: 0;
+  align-self: stretch;
+
+  &__back {
+    display: grid;
+    grid-template-rows: auto;
+    place-items: center;
+    justify-self: start;
+    min-inline-size: var(--size-touch-target);
+    min-block-size: var(--size-touch-target);
+    font-size: var(--font-size-start-back);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-display);
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+}

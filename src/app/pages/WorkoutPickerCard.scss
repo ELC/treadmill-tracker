@@ -1,0 +1,79 @@
+.workout-picker-card {
+  display: grid;
+  grid-template-rows: max-content max-content;
+  align-content: center;
+  align-self: start;
+  min-block-size: var(--size-start-workout-card-min);
+  row-gap: var(--space-start-card-title-gap);
+  column-gap: var(--space-0);
+  padding: var(--space-start-card-padding-block) var(--space-3);
+  border: var(--border-width-control) solid var(--color-accent);
+  border-radius: var(--radius-home-tile);
+  background: transparent;
+  color: var(--color-text);
+  text-decoration: none;
+  transition:
+    border-color var(--duration-control-press) ease,
+    background var(--duration-control-press) ease;
+
+  &:active {
+    background: var(--color-control-pressed-bg);
+  }
+
+  &__name {
+    display: grid;
+    grid-template-rows: max-content;
+    align-self: start;
+    justify-self: stretch;
+    margin-block: var(--space-0);
+    margin-inline: var(--space-0);
+    padding: var(--space-0);
+    font-size: var(--font-size-start-card-title);
+    font-weight: 600;
+    line-height: var(--line-height-start-card-title);
+    text-align: center;
+    color: var(--color-text);
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: max-content max-content;
+    align-items: start;
+    align-self: stretch;
+    justify-items: stretch;
+    gap: var(--space-start-card-stat-row-gap) var(--space-start-card-stat-gap);
+    margin: var(--space-0);
+    padding: var(--space-0);
+  }
+
+  &__stat {
+    display: grid;
+    grid-template-rows: max-content max-content;
+    gap: var(--space-start-card-stat-inner-gap);
+    align-self: start;
+    align-content: start;
+    justify-items: center;
+    min-inline-size: 0;
+  }
+
+  &__stat-term {
+    margin: var(--space-0);
+    font-size: var(--font-size-start-card-stat-label);
+    font-weight: 400;
+    line-height: var(--line-height-start-card-stat);
+    color: var(--color-text-muted);
+    text-align: center;
+  }
+
+  &__stat-value {
+    margin: var(--space-0);
+    font-family: var(--font-family-set-panel-metric);
+    font-size: var(--font-size-start-card-stat);
+    font-weight: var(--font-weight-metric-display);
+    font-variant-numeric: tabular-nums;
+    line-height: var(--line-height-start-card-stat);
+    color: var(--color-text);
+    text-align: center;
+  }
+}
