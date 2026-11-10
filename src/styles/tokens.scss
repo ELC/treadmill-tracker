@@ -80,6 +80,11 @@
   --size-workout-set-indicators-row: var(--size-workout-set-indicator-dot);
   --space-workout-set-indicators-gap: 0.5rem;
   --space-workout-set-indicators-legend-gap: 0.625rem;
+  --size-workout-set-indicators-legend-ch: 3.25ch;
+  --size-workout-set-indicators-dots-max: calc(
+    5 * var(--size-workout-set-indicator-dot) + 4 *
+      var(--space-workout-set-indicators-gap)
+  );
   --offset-workout-set-indicators-legend-y: 0.06em;
   --border-width-set-indicator-dot: 2px;
   --color-workout-set-indicator-completed: var(--color-accent);
